@@ -1,0 +1,13 @@
+<h1>hola</h1>
+
+<div>
+  <%= link_to "Nuevo Cliente", new_customer_path, class: "btn btn-primary" %>
+</div>
+
+<div>
+  <ul>
+    <% @customers.each do |customer| %>
+      <li><%= customer.first_name %></li>
+    <% end %>
+  </ul>
+</div>
