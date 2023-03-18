@@ -7,19 +7,34 @@
     padding: 2.5vw;
     border-radius: 7px;
     color: black;
+    box-shadow: 0 1px 6px #0003;
 }
 
-body::before{
+.sign::before{
     content: '';
     position:fixed;
     height: 100%;
     width: 100%;
-    background-image: url(https://img.freepik.com/premium-photo/plumber-using-wrench-repair-water-pipe-sink_101448-3422.jpg);
+    background-image:url(https://img.freepik.com/premium-photo/plumber-using-wrench-repair-water-pipe-sink_101448-3422.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    opacity: 60%;
 }
 
 #navbar{
     background-color: rgb(255, 255, 255);
+}
+
+.alert-ind{
+    display: inline-block;
+    position: absolute;
+    margin: 5vw 28.8vw;
+    padding: 1.5vw 1.7vw;
+    box-shadow: 0 1px 6px rgba(233, 2, 2, 0.2);
+}
+
+.welcome{
+    text-align: center;
+    color: black;
 }
