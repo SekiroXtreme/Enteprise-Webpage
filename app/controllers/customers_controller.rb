@@ -26,7 +26,6 @@ class CustomersController < ApplicationController
   end
 
   def update
-    debugger
     if @customer.update(customer_params)
       redirect_to customers_path, notice: "Customer was successfully updated." 
     else
