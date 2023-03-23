@@ -10,11 +10,11 @@ class CustomersController < ApplicationController
   end
 
   def show
+    @conversations = @customer.conversations
   end
 
   def create
     @customer = current_user.customers.build(customer_params)
-
     if @customer.save
       redirect_to customers_path, notice: "New client created"
     else

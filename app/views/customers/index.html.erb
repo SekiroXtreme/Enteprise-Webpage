@@ -1,13 +1,52 @@
-<h1>hola</h1>
-
 <div>
-  <%= link_to "Nuevo Cliente", new_customer_path, class: "btn btn-primary" %>
+  <%= link_to "New Client", new_customer_path, class: "btn btn-primary" %>
 </div>
 
-<div>
-  <ul>
-    <% @customers.each do |customer| %>
-      <li><%= customer.first_name %></li>
+<div class="customer">
+  <table class="table table-borderless mt-5 prospects-table">
+    <thead>
+      <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Phone</th>
+        <th>Main address</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Conversations</th>
+        <th></th>
+
+      </tr>
+    </thead>
+    <%if @customers.present?%>
+    <tbody>
+      <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.first_name %></td>
+        <td><%= customer.last_name %></td>
+        <td><%= customer.phone %></td>
+        <td><%= customer.main_address %></td>
+        <td><%= customer.email %></td>
+        <td><%= customer.status %></td>
+        <td><%= customer.conversations.count %></td>
+        <td></td>
+        <td>
+          <%= link_to customer_path(customer) do %>
+                <i class="fas fa-eye show-btn"></i>
+              <% end %>
+
+          <%= link_to edit_customer_path(customer) do %>
+            <i class="fas fa-edit mx-3 edit-btn"></i>
+          <% end %>
+
+          <%= link_to customer_path(customer), data:{turbo_method: :delete} do %>
+            <i class="fas fa-trash-alt delete-btn "></i>
+          <% end %>
+        </td> 
     <% end %>
-  </ul>
+    <%else%>
+      <td>There's no Clients yet</td>
+      </tr>
+    <%end%>
+    </tbody>
+  </table>
 </div>
