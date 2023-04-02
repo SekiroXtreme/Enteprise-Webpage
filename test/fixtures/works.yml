@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job: MyText
+  description: MyText
+  price: 1
+  status: MyText
+  customer: one
+
+two:
+  job: MyText
+  description: MyText
+  price: 1
+  status: MyText
+  customer: two
