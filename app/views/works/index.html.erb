@@ -1,0 +1,28 @@
+<h1>Job History</h1>
+<%= link_to "New Job", new_customer_work_path(params[:customer_id], @works)%>
+<div>
+<% if @works.present?%>
+<table>
+    <tbody>
+        <thead>
+            <tr>
+                <th>Job</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <% @works.each do |job|%>
+        <tr>
+            <td><%=job.job%></td>
+            <td><%=job.description%></td>
+            <td><%=job.price%></td>
+            <td><%=job.status%></td>
+            <%end%>
+        <%else%>
+            <p>All clear</p>
+        <%end%>
+        </tr>
+    </tbody>
+</table>
+</div>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :customers do
     resources :conversations
     delete "delete_all", to: "conversations#delete_all" 
+    resources :works
   end
   
 end

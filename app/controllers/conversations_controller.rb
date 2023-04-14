@@ -29,7 +29,7 @@ class ConversationsController < ApplicationController
     def delete_all
         @customer = Customer.find(params[:customer_id])
         @customer.conversations.destroy_all
-        redirect_to @customer, notice: "Conversation Succesfully removed"
+        redirect_to @customer, notice: "Conversations Succesfully removed"
 
     end
 

@@ -1,8 +1,7 @@
 .div-container{
-    display: inline-block;
-    position: absolute;
     background-color: rgba(255, 255, 255, 0.8);
-    margin: 15vw 28vw;
+    position: absolute;
+    margin: 200px 400px;
     min-width: 100px;
     padding: 2.5vw;
     border-radius: 7px;
@@ -26,15 +25,12 @@
     background-color: rgb(255, 255, 255);
 }
 
-.alert-ind{
-    display: inline-block;
-    position: absolute;
-    margin: 5vw 28.8vw;
-    padding: 1.5vw 1.7vw;
-    box-shadow: 0 1px 6px rgba(233, 2, 2, 0.2);
-}
 
 .welcome{
     text-align: center;
     color: black;
+}
+
+table{
+    column-gap: 30px;
 }

@@ -11,7 +11,9 @@ class CustomersController < ApplicationController
 
   def show
     @conversations = @customer.conversations
+    @works = @customer.works
   end
+
 
   def create
     @customer = current_user.customers.build(customer_params)

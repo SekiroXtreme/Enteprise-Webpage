@@ -1,15 +1,21 @@
 <h1>Comments</h1>
 <%= link_to "Add", new_customer_conversation_path(@customer), class: "btn btn-primary" %>
 <%= link_to "Delete All", customer_delete_all_path(@customer),data:{turbo_method: :delete}, class: "btn btn-primary" %>
+<div>
 <%if @conversations.present?%>
 <table>
-<% @conversations.each do |conversation|%>
-    <%= conversation.conversation%>
-    <%end%>
-<%else%>
-    <p>Any Messages here</p>
-<%end%>
+    <tbody>
+        <% @conversations.each do |conversation|%>
+        <tr>
+            <%= conversation.conversation%>
+            <%end%>
+        <%else%>
+            <p>Any Messages here</p>
+        <%end%>
+        </tr>
+    </tbody>
 </table>
+</div>
 
 
 
