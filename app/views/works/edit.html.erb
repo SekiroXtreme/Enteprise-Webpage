@@ -1,0 +1,9 @@
+<h1>Edit Job</h1>
+
+<%= simple_form_for [@customer, @work] do |f|%>
+    <%= f.input :job%>
+    <%= f.input :description%>
+    <%= f.input :price%>
+    <%= f.input :status%>
+    <%= f.submit class: "btn btn-primary"%>
+<%end%>

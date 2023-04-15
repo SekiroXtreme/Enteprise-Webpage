@@ -1,8 +1,8 @@
 <h1>Job History</h1>
-<%= link_to "New Job", new_customer_work_path(params[:customer_id], @works)%>
+<%= link_to "New Job", new_customer_work_path(params[:customer_id], @works), class: "btn btn-primary"%>
 <div>
 <% if @works.present?%>
-<table>
+<table class="table table-borderless mt-5 prospects-table">
     <tbody>
         <thead>
             <tr>
@@ -16,8 +16,18 @@
         <tr>
             <td><%=job.job%></td>
             <td><%=job.description%></td>
-            <td><%=job.price%></td>
+            <td><%=job.price%>$</td>
             <td><%=job.status%></td>
+            <td></td>
+            <td>
+          <%= link_to edit_customer_work_path(params[:customer_id], job) do %>
+            <i class="fas fa-edit mx-3 edit-btn"></i>
+          <% end %>
+
+          <%= link_to customer_work_path(params[:customer_id], job), data:{turbo_method: :delete} do %>
+            <i class="fas fa-trash-alt delete-btn"></i>
+          <% end %>             
+            </td>
             <%end%>
         <%else%>
             <p>All clear</p>

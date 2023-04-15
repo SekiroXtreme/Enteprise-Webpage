@@ -1,6 +1,6 @@
 class WorksController < ApplicationController
-    before_action :set_work, only: [:edit, :update, :destroy]
-
+    before_action :set_work, only: [ :edit, :update, :destroy]
+    before_action :set_customer, only: [ :edit, :update, :destroy]
     def index
         @works = Work.all
     end
@@ -14,7 +14,7 @@ class WorksController < ApplicationController
         @work = Work.new(work_params)
         @work.customer_id = params[:customer_id]
         if @work.save
-            redirect_to customer_work_path(:customer_id), notice: "New Job added successfully"
+            redirect_to customer_works_path(params[:customer_id], @customer), notice: "New Job added successfully"
         else
             render :new, status: :unprocessable_entity
         end
@@ -25,7 +25,7 @@ class WorksController < ApplicationController
 
     def update
         if @work.update(work_params)
-            redirect_to customer_work_path(:customer_id), notice: "Job updated successfully"
+            redirect_to customer_works_path(@customer, params[:customer_id]), notice: "Job updated successfully"
         else
             render :new, status: :unprocessable_entity
         end
@@ -33,10 +33,14 @@ class WorksController < ApplicationController
 
     def destroy
         @work.destroy
-        redirect_to works_path, notice: "Job deleted successfully"
+        redirect_to customer_works_path(@customer), notice: "Job deleted successfully"
     end
 
     private
+
+    def set_customer
+        @customer = Customer.find(params[:customer_id])
+    end
 
     def set_work
         @work = Work.find(params[:id])
