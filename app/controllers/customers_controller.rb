@@ -2,7 +2,10 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   def index
-    @customers = Customer.all
+    @pagy, @customers = pagy(Customer.all, items: 5)
+    @customers_quantity = Customer.count
+    @recurring_quantity = Customer.where(status: 'Active', status: 'Activo').count
+    @jobs_quantity = Work.where(status: 'Pending').count
   end
 
   def new
@@ -10,7 +13,7 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @conversations = @customer.conversations
+    @pagy, @conversations = pagy(@customer.conversations, items: 5)
     @works = @customer.works
   end
 
