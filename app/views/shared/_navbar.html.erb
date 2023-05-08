@@ -1,7 +1,10 @@
 <nav class="navbar navbar-expand-lg " id="navbar">
   <div class="container-fluid">
     <%= link_to customers_path do%>
-      <img src="https://protekplumbing.sydney/wp-content/uploads/2021/11/protek-plumbing-logo.png" class="navbar-brand" width="100vwh" href="/login">
+      <img src="https://universalrepairandmaintenance.com/wp-content/uploads/2023/03/LOGO-PNG.png" class="navbar-brand" width="100vwh" href="/login">
     <%end%>
+  <% if user_signed_in? %>
+  <%= link_to t("Logout"), destroy_user_session_path, data:{turbo_method: :delete}, class: "btn btn-primary"  %>
+  <% end %>  
   </div>
 </nav>

@@ -1,0 +1,49 @@
+es:
+  simple_form:
+    "yes": 'Si'
+    "no": 'No'
+    required:
+      text: Requerido
+      mark: '*'
+    error_notification:
+      default_message: "Se encontraron los siguientes errores:"
+    labels:
+      defaults:
+        login : "Ingresar"
+        password : "Contraseña"
+        password_confirmation : "Confirmar contraseña"
+        current_password : "Contraseña actual"
+        email : "Correo"
+        remember_me: "Recuérdame"
+      customer:
+        first_name : "Nombre"
+        last_name : "Apellido"
+        phone : "Teléfono"
+        main_address : "Dirección"
+        status: "Estatus"
+        create : "Crear"
+      conversation:
+        conversation : "Comentario"
+      work:
+        job: "Trabajo"
+        description: "Descripción"
+        price : "Precio"
+        status : "Estatus"
+
+    options:
+        customer:
+          status:
+            active: "Activo"
+            noactive: "No Activo"
+        work:
+          status:
+            working : "Trabajando"
+            finished : "Finalizado"
+            pending : "Pendiente"
+          job:
+            :plumbing : "Plomería"
+            :electricity : "Electricidad"
+            :brickwork : "Albañilería"
+            :painting : "Pintura"
+            :misc : "Otro"
+

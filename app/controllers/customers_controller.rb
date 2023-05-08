@@ -4,8 +4,8 @@ class CustomersController < ApplicationController
   def index
     @pagy, @customers = pagy(Customer.all, items: 5)
     @customers_quantity = Customer.count
-    @recurring_quantity = Customer.where(status: 'Active', status: 'Activo').count
-    @jobs_quantity = Work.where(status: 'Pending').count
+    @recurring_quantity = Customer.where(status: :active).count
+    @jobs_quantity = Work.where(status: :pending).count
   end
 
   def new
@@ -21,7 +21,7 @@ class CustomersController < ApplicationController
   def create
     @customer = current_user.customers.build(customer_params)
     if @customer.save
-      redirect_to customers_path, notice: "New client created"
+      redirect_to customers_path, notice: t("New Customer created")
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,7 +32,7 @@ class CustomersController < ApplicationController
 
   def update
     if @customer.update(customer_params)
-      redirect_to customers_path, notice: "Customer was successfully updated." 
+      redirect_to customers_path, notice: t("Customer was successfully updated") 
     else
       render :edit, status: :unprocessable_entity
     end 
@@ -41,7 +41,7 @@ class CustomersController < ApplicationController
 
   def destroy
        @customer.destroy
-       redirect_to customers_path, notice: "Customer was successfully removed." 
+       redirect_to customers_path, notice: t("Customer was successfully removed") 
   end
   private
 

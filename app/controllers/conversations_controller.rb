@@ -14,7 +14,7 @@ class ConversationsController < ApplicationController
         @conversation = Conversation.new(conversation_params)
         @conversation.customer_id = params[:customer_id]
         if @conversation.save
-          redirect_to customer_path(params[:customer_id]), notice: "Conversation Succesfully added to chat"
+          redirect_to customer_path(params[:customer_id]), notice: t("Conversation Succesfully added to chat")
         else
             render :new, status: :unprocessable_entity
         end
@@ -29,7 +29,7 @@ class ConversationsController < ApplicationController
     def delete_all
         @customer = Customer.find(params[:customer_id])
         @customer.conversations.destroy_all
-        redirect_to @customer, notice: "Conversations Succesfully removed"
+        redirect_to @customer, notice: t("Conversations Succesfully removed")
 
     end
 
