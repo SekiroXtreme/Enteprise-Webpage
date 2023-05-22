@@ -1,0 +1,14 @@
+<body class="main">
+<h1><%=t("New Customer")%></h1>
+<div class="form">
+<%= simple_form_for @customer do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.input :phone %>
+  <%= f.input :main_address %>
+  <%= f.input :status, collection: Customer::STATUS %>
+  <%= f.submit t("Create Customer"), class: "btn btn-primary" %>
+<% end %>
+</div>
+</body>

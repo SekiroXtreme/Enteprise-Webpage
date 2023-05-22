@@ -1,0 +1,118 @@
+<body class="main">
+<h1><%=t("Customers List")%></h1>
+<div class="row justify-content-between">
+
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card info-card border-left-cyan shadow-sm h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="info-card-title text-uppercase text-cyan mb-1">
+                  <%=t("Customers")%>
+              </div>
+              <div class="h5 mb-0 text-gray-800"><%= @customers_quantity %></div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-user-alt fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card info-card border-left-cyan shadow-sm h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="info-card-title text-uppercase text-cyan mb-1">
+                  <%=t("Jobs")%>
+              </div>
+              <div class="h5 mb-0 text-gray-800"><%=  @jobs_quantity  %></div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-user-tag fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card info-card border-left-cyan shadow-sm h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="info-card-title text-uppercase text-cyan mb-1">
+                  <%=t("Recurring")%>
+              </div>
+              <div class="mb-0 text-gray-800"><%= @recurring_quantity %></div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-user-tie fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+<div class="customer">
+  <table class="table table-borderless mt-5 prospects-table">
+    <%= link_to t("New Client"), new_customer_path, class: "btn btn-primary" %>
+    <div class="space"></div>
+    <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
+
+    <thead>
+      <tr>
+        <th><%=t("First name")%></th>
+        <th><%=t("Last name")%></th>
+        <th><%=t("Phone")%></th>
+        <th><%=t("Main address")%></th>
+        <th><%=t("Email")%></th>
+        <th><%=t("Status")%></th>
+        <th><%=t("Comments")%></th>
+        <th><%=t("Total Jobs")%></th>
+        <th></th>
+      </tr>
+    </thead>
+    <%if @customers.present?%>
+    <tbody>
+      <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.first_name %></td>
+        <td><%= customer.last_name %></td>
+        <td><%= customer.phone %></td>
+        <td><%= customer.main_address %></td>
+        <td><%= customer.email %></td>
+        <td><%= t(customer.status) %></td>
+        <td><%= customer.conversations.count%></td>
+        <td><%= customer.works.count %></td>
+        <td></td>
+        <td>
+          <%= link_to customer_path(customer) do %>
+             <i class="fa-sharp fa-solid fa-messages"></i>
+          <% end %>
+
+          <%= link_to edit_customer_path(customer) do %>
+            <i class="fas fa-edit mx-3 edit-btn"></i>
+          <% end %>
+
+          <%= link_to customer_path(customer), data:{turbo_method: :delete} do %>
+            <i class="fas fa-trash-alt delete-btn "></i>
+          <% end %>
+
+          <%= link_to customer_works_path(customer) do%>
+           <i class="fa-sharp fa-solid fa-briefcase"></i>
+          <%end%>
+        </td> 
+    <% end %>
+    <%else%>
+      <td><%=t("There's no Customers yet")%></td>
+      </tr>
+    <%end%>
+    </tbody>
+  </table>
+</div>
+</body>
+

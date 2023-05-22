@@ -1,0 +1,11 @@
+<body class="main">
+<h1>Edit Job</h1>
+
+<%= simple_form_for [@customer, @work] do |f|%>
+    <%= f.input :job, collection: Work::JOBS%>
+    <%= f.input :description%>
+    <%= f.input :price%>
+    <%= f.input :status, collection: Work::STATUS%>
+    <%= f.submit class: "btn btn-primary"%>
+<%end%>
+</body>

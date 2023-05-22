@@ -1,0 +1,25 @@
+<h1><%=t("Comments")%></h1>
+<div class="customer">
+<table class="table table-borderless mt-5">
+    <%= link_to t("Add"), new_customer_conversation_path(@customer), class: "btn btn-primary margin" %>
+    <%= link_to t("Delete All"), customer_delete_all_path(@customer),data:{turbo_method: :delete}, class: "btn btn-primary" %>
+    <div class="space"></div>
+    <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
+    <tbody>
+        <%if @conversations.present?%>
+        <% @conversations.each do |conversation|%>
+        <tr class="message">
+            <td class="message">
+                <%= conversation.conversation%>
+            </td>  
+                <%end%>
+            <%else%>
+            <td><%=t("Any Comments here")%></td>
+            <%end%>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+
+
