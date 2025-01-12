@@ -1,6 +1,6 @@
 # Enterprise-webpage: Aplicación de Gestión Empresarial
 
-Este es un proyecto de demostración desarrollado en **Ruby on Rails** como parte de mi portafolio. La aplicación permite gestionar conversaciones y usuarios de manera eficiente.
+Este es un proyecto de demostración desarrollado en **Ruby on Rails** como parte de un proyecto hecho con el fin de ayudar a mi padre a gestionar su trabajo. La aplicación permite gestionar conversaciones, trabajos y usuarios de manera eficiente.
 
 ## Características
 
