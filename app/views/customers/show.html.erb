@@ -1,5 +1,5 @@
 <h1><%=t("Comments")%></h1>
-<div class="customer">
+<div class="customer table-responsive">
 <table class="table table-borderless mt-5">
     <%= link_to t("Add"), new_customer_conversation_path(@customer), class: "btn btn-primary margin" %>
     <%= link_to t("Delete All"), customer_delete_all_path(@customer),data:{turbo_method: :delete}, class: "btn btn-primary" %>

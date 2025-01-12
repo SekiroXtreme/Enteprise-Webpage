@@ -1,6 +1,5 @@
-<body class="main">
 <h1><%=t("Job History")%></h1>
-<div class="customer">
+<div class="customer table-responsive">
 <table class="table table-borderless mt-5 prospects-table">
     <tbody>
         <thead>
@@ -21,13 +20,16 @@
             <td><%=t(job.status)%></td>
             <td></td>
             <td>
-          <%= link_to edit_customer_work_path(params[:customer_id], job) do %>
-            <i class="fas fa-edit mx-3 edit-btn"></i>
-          <% end %>
-
-          <%= link_to customer_work_path(params[:customer_id], job), data:{turbo_method: :delete} do %>
-            <i class="fas fa-trash-alt delete-btn"></i>
-          <% end %>             
+              <td>
+                <%= link_to edit_customer_work_path(params[:customer_id], job) do %>
+                  <i class="fas fa-edit mx-3 edit-btn"></i>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to customer_work_path(params[:customer_id], job), data:{turbo_method: :delete} do %>
+                  <i class="fas fa-trash-alt delete-btn"></i>
+                <% end %>      
+              </td>       
             </td>
             <%end%>
         <%else%>
@@ -37,4 +39,3 @@
     </tbody>
 </table>
 </div>
-</body>

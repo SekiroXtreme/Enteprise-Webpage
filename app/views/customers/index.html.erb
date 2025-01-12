@@ -1,6 +1,5 @@
-<body class="main">
 <h1><%=t("Customers List")%></h1>
-<div class="row justify-content-between">
+<div class="row justify-content-between container-lg container-xl container-xxl">
 
     <div class="col-xl-3 col-md-6 mb-4">
       <div class="card info-card border-left-cyan shadow-sm h-100 py-2">
@@ -57,7 +56,7 @@
     </div>
 
   </div>
-<div class="customer">
+<div class="customer table-responsive">
   <table class="table table-borderless mt-5 prospects-table">
     <%= link_to t("New Client"), new_customer_path, class: "btn btn-primary" %>
     <div class="space"></div>
@@ -88,23 +87,27 @@
         <td><%= t(customer.status) %></td>
         <td><%= customer.conversations.count%></td>
         <td><%= customer.works.count %></td>
-        <td></td>
         <td>
-          <%= link_to customer_path(customer) do %>
-             <i class="fa-sharp fa-solid fa-messages"></i>
-          <% end %>
-
-          <%= link_to edit_customer_path(customer) do %>
-            <i class="fas fa-edit mx-3 edit-btn"></i>
-          <% end %>
-
-          <%= link_to customer_path(customer), data:{turbo_method: :delete} do %>
-            <i class="fas fa-trash-alt delete-btn "></i>
-          <% end %>
-
-          <%= link_to customer_works_path(customer) do%>
-           <i class="fa-sharp fa-solid fa-briefcase"></i>
-          <%end%>
+          <td>
+            <%= link_to customer_path(customer) do %>
+              <i class="fa-solid fa-message"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_customer_path(customer) do %>
+              <i class="fas fa-edit mx-3 edit-btn"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to customer_path(customer), data:{turbo_method: :delete} do %>
+              <i class="fas fa-trash-alt delete-btn "></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to customer_works_path(customer) do%>
+            <i class="fa-sharp fa-solid fa-briefcase"></i>
+            <%end%>
+          </td>
         </td> 
     <% end %>
     <%else%>
@@ -114,5 +117,4 @@
     </tbody>
   </table>
 </div>
-</body>
 
